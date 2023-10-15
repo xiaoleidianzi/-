@@ -1,0 +1,7 @@
+<view class="title">【获得记录】 </view>
+<view wx:for="{{list}}">
+  <view class="content">  
+      <view>【名称】：{{item.name}} </view>
+      <view>【密码】：{{item.code}} </view>    
+  </view>
+</view>
