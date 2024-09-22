@@ -1,9 +1,11 @@
 // index.js
-// const app = getApp()
+var app_var= getApp()
 const { envList } = require('../../envList.js');
-const db = wx.cloud.database();
-console.log(db)
+// const db = wx.cloud.database();
+// console.log(db)
+let g_id=0;
 Page({
+  
   data: {
     showUploadTip: false,
     contentId: 0,
@@ -67,23 +69,35 @@ Page({
   },
   buttonClick1: function() {
     console.log('按钮被点击了');
-    
-    wx.cloud.database().collection('ziyuan').doc('2222').get()
-    .then(res => {
-        console.log(res.data.code)
-        this.setData({
-          contentId: 1,
-          datadb:res.data.code
-        });
-      }).catch(err => {
-        console.log(err)
-      })
+    console.log(g_id);
+    var that = this; // 保存页面上下文
+    wx.request({
+      url: 'https://xiaoleidianzi.xyz/xiaochengxu/mysql.php',
+      method: 'GET',
+      data:{ 
+          id:g_id,
+          openid:app_var.globalData.openid
+          // name:'数据库账号',
+          // password:'数据库密码',
+          // database:'数据库名',
+          //code:this.data.code,
+          //date:this.data.date,
+      },
 
-      
-    // wx.navigateTo({
-    //   url: '/pages/getOpenId/index'
-      
-    // })
+      success: function (res) {
+          console.log(res.data)
+          
+        // 将获取的数据存储到页面数据中
+        that.setData({
+            contentId: 1,
+            datadb:res.data
+        });
+      },
+      fail: function (error) {
+        console.error('请求失败', error);
+      }
+    });
+
     console.log('页面跳转了');
     // this.onLoad()
   },
@@ -163,5 +177,14 @@ Page({
       });
       wx.hideLoading();
     });
-  }
+  },
+  onLoad: function(options) {
+    // options中包含了传递的query参数
+    console.log(options.id); // 打印出query参数
+    g_id=options.id
+  },
 });
+
+
+
+
