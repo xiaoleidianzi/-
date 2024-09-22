@@ -3,3 +3,10 @@
       <view>【名称】：{{datadb.date}} </view>
       <view>【密码】：{{datadb.code}} </view>    
   </view>
+
+  <view class="top_tip1">
+    <ad-custom unit-id="adunit-40a92b4f82e572f0" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+  </view>
+  <view class="top_tip1">
+    <ad-custom unit-id="adunit-40a92b4f82e572f0" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+  </view>

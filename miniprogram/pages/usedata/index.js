@@ -3,6 +3,16 @@ Page({
   data:{
       list:[ ]
   },
+  adLoad() {
+    console.log('原生模板广告加载成功')
+  },
+  adError(err) {
+    console.error('原生模板广告加载失败', err)
+  },
+  adClose() {
+    console.log('原生模板广告关闭')
+  },
+  
   onLoad(){
     console.log('按钮被点击了');
     console.log('333'+app_var.globalData.openid);

@@ -33,19 +33,22 @@ Page({
   onLoad: function(options) {
     // options中包含了H5传递的ID参数
       g_id=options.id  
-    // 在页面onLoad回调事件中创建激励视频广告实例（若在开发者工具中无法预览广告，请切换开发者工具中的基础库版本）
-    if (wx.createRewardedVideoAd) {
-      videoAd = wx.createRewardedVideoAd({
-        adUnitId: 'adunit-227ea51ebcff58d5'
-      })
-      videoAd.onLoad(() => {})
-      videoAd.onError((err) => {
-        console.error('激励视频光告加载失败', err)
-      })  
-    }
   },
+
+  adLoad() {
+    console.log('原生模板广告加载成功')
+  },
+  adError(err) {
+    console.error('原生模板广告加载失败', err)
+  },
+  adClose() {
+    console.log('原生模板广告关闭')
+  },
+
 });
 
+
+  
 
 
 

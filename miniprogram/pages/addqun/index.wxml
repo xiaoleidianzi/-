@@ -32,6 +32,9 @@
           <button type="primary" size="mini" bindtap="buttonClick3"  style="background-color: rgb(34, 206, 11);">加群</button>
     </view>    
   </view>
+  <view class="top_tip2">
+    <ad-custom unit-id="adunit-40a92b4f82e572f0" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+  </view>
   <view class="top_tip1">
     <image src="{{imageUrl}}" mode="widthFix" align-items="content"></image>
   </view>
