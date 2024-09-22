@@ -4,6 +4,9 @@ const { envList } = require('../../envList.js');
 // const db = wx.cloud.database();
 // console.log(db)
 let g_id=0;
+let videoAdstatus=0;//0：视频播放失败 1:视频播放成功
+let videoAd = null;
+
 Page({
   
   data: {
@@ -69,34 +72,56 @@ Page({
   },
   buttonClick1: function() {
     console.log('按钮被点击了');
-    console.log(g_id);
-    var that = this; // 保存页面上下文
-    wx.request({
-      url: 'https://xiaoleidianzi.xyz/xiaochengxu/mysql.php',
-      method: 'GET',
-      data:{ 
-          id:g_id,
-          openid:app_var.globalData.openid
-          // name:'数据库账号',
-          // password:'数据库密码',
-          // database:'数据库名',
-          //code:this.data.code,
-          //date:this.data.date,
-      },
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.error('激励视频 广告显示失败', err)
+          })
+      })
+    }
 
-      success: function (res) {
-          console.log(res.data)
-          
-        // 将获取的数据存储到页面数据中
-        that.setData({
-            contentId: 1,
-            datadb:res.data
+    videoAd.onClose((res) => {
+      if (res && res.isEnded || res === undefined) {
+        // 正常播放结束，下发奖励
+        console.info('正常播放结束，下发奖励')
+        console.log(g_id);
+        var that = this; // 保存页面上下文
+        wx.request({
+          url: 'https://xiaoleidianzi.xyz/xiaochengxu/mysql.php',
+          method: 'GET',
+          data:{ 
+              id:g_id,
+              openid:app_var.globalData.openid
+              // name:'数据库账号',
+              // password:'数据库密码',
+              // database:'数据库名',
+              //code:this.data.code,
+              //date:this.data.date,
+          },
+
+          success: function (res) {
+              console.log(res.data)
+              console.log(videoAdstatus)
+            // 将获取的数据存储到页面数据中
+            that.setData({
+                datadb:res.data,
+                contentId:1
+            });
+          },
+          fail: function (error) {
+            console.error('请求失败', error);
+          }
         });
-      },
-      fail: function (error) {
-        console.error('请求失败', error);
-      }
-    });
+        } else {
+        // 播放中途退出，进行提示
+        console.error('播放中途退出，进行提示')
+        }
+    })
+    
 
     console.log('页面跳转了');
     // this.onLoad()
@@ -182,6 +207,22 @@ Page({
     // options中包含了传递的query参数
     console.log(options.id); // 打印出query参数
     g_id=options.id
+  // 若在开发者工具中无法预览广告，请切换开发者工具中的基础库版本
+    // 在页面中定义激励视频广告
+    
+
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-227ea51ebcff58d5'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {
+        console.error('激励视频光告加载失败', err)
+      })
+      
+    }
+
   },
 });
 

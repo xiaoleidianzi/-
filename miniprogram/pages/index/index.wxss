@@ -18,7 +18,7 @@ page {
   
   position: fixed;
   /* z-index: 100; */
-  bottom: 500rpx;
+  bottom: 400rpx;
   /* right: 320rpx; */
   margin-bottom: 40rpx;
   /* width: 100rpx; */
@@ -28,7 +28,7 @@ page {
 .datadb{
   position: fixed;
   /* z-index: 100; */
-  bottom: 620rpx;
+  bottom: 520rpx;
   /* right: 320rpx; */
   margin-bottom: 40rpx;
   /* width: 100rpx; */

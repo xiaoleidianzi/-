@@ -22,7 +22,7 @@ App({
               url: 'https://xiaoleidianzi.xyz/xiaochengxu/getUserInfo.php', // 这里替换成你的后端API地址
               method: 'POST',
               header: {
-                'content-type': 'application/x-www-form-urlencoded' // 默认值
+                'content-type': 'application/x-www-form-urlencoded' 
                 },
               data: {
                 code:res.code
