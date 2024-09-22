@@ -12,11 +12,17 @@ Component({
             "text": "密码"
         },
         {
-            "pagePath": "/pages/createCollection/index",
-            "iconPath": "/images/home.png",
-            "selectedIconPath": "/images/home.png",
-            "text": "记录"
-        }
+            "pagePath": "/pages/addqun/index",
+            "iconPath": "/images/QUN.png",
+            "selectedIconPath": "/images/QUN.png",
+            "text": "进群"
+        },
+        {
+          "pagePath": "/pages/usedata/index",
+          "iconPath": "/images/home.png",
+          "selectedIconPath": "/images/home.png",
+          "text": "记录"
+      }
     ]
     },
     attached() {

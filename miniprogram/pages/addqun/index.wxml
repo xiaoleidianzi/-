@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="title">进群</view>
+  
+  <view class="top_tip">
+    <image src='../../images/wx.png'  class="img" mode="widthFix" > > </image>
+    <view class="top_txp1">进群免费吃瓜
+       <view class="top_txp2">每日最新资讯</view>
+    </view>
+    <view class="button01">
+          <button type="primary" size="mini" bindtap="buttonClick1" justify-content="flex-end" style="background-color: rgb(34, 206, 11);">加群</button>
+    </view>    
+  </view>
+
+  <view class="top_tip">
+    <image src='../../images/wx.png'  class="img" mode="widthFix" > > </image>
+    <view class="top_txp1">进群免费吃瓜
+       <view class="top_txp2">紧跟热点话题</view>
+    </view>
+    <view class="button01">
+          <button type="primary" size="mini" bindtap="buttonClick2" justify-content="flex-end" style="background-color: rgb(34, 206, 11);">加群</button>
+    </view>    
+  </view>
+
+  <view class="top_tip">
+    <image src='../../images/wx.png'  class="img" mode="widthFix" > > </image>
+    <view class="top_txp1">进群免费吃瓜
+       <view class="top_txp2">免费获取资料</view>
+    </view>
+    <view class="button01" justify-content="flex-end">
+          <button type="primary" size="mini" bindtap="buttonClick3"  style="background-color: rgb(34, 206, 11);">加群</button>
+    </view>    
+  </view>
+  <view class="top_tip1">
+    <image src="{{imageUrl}}" mode="widthFix" align-items="content"></image>
+  </view>
+</view>
+

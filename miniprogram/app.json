@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/createCollection/index"
+    "pages/addqun/index",
+    "pages/usedata/index"
+    
   ],
   "tabBar": {
     "custom": true,
@@ -17,7 +19,13 @@
         "text": "密码"
       },
       {
-        "pagePath": "pages/createCollection/index",
+        "pagePath": "pages/addqun/index",
+        "iconPath": "images/QUN.png",
+        "selectedIconPath": "images/QUN.png",
+        "text": "进群"
+      },
+      {
+        "pagePath": "pages/usedata/index",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home.png",
         "text": "记录"

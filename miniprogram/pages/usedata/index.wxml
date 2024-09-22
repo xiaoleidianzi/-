@@ -1,0 +1,5 @@
+<view class="title">【获得记录】 </view>
+  <view class="content">  
+      <view>【名称】：{{datadb.date}} </view>
+      <view>【密码】：{{datadb.code}} </view>    
+  </view>
