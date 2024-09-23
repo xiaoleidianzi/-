@@ -13,6 +13,11 @@ Page({
   },
   buttonClick1: function() {
     console.log('按钮被点击了');
+    wx.showLoading({
+      title: '广告加载中',
+      mask: 1000,
+      duration: 1000
+    });
     // 用户触发广告后，显示激励视频广告
     if (videoAd) {
       videoAd.show().catch(() => {
@@ -65,7 +70,9 @@ Page({
       videoAd = wx.createRewardedVideoAd({
         adUnitId: 'adunit-227ea51ebcff58d5'
       })
-      videoAd.onLoad(() => {})
+      videoAd.onLoad(() => {
+        
+      })
       videoAd.onError((err) => {
         console.error('激励视频光告加载失败', err)
       })  
