@@ -11,12 +11,12 @@ Component({
             "selectedIconPath": "/images/camera.png",
             "text": "密码"
         },
-        {
-            "pagePath": "/pages/addqun/index",
-            "iconPath": "/images/QUN.png",
-            "selectedIconPath": "/images/QUN.png",
-            "text": "进群"
-        },
+        // {
+        //     "pagePath": "/pages/addqun/index",
+        //     "iconPath": "/images/QUN.png",
+        //     "selectedIconPath": "/images/QUN.png",
+        //     "text": "进群"
+        // },
         {
           "pagePath": "/pages/usedata/index",
           "iconPath": "/images/home.png",

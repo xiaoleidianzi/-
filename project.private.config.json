@@ -6,9 +6,23 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/index/index",
+          "name": "pages/addqun/index",
+          "pathName": "pages/addqun/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/selectRecord/index",
           "pathName": "pages/index/index",
-          "query": "id=9",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/addqun/index",
+          "query": "",
           "launchMode": "default",
           "scene": null
         },
@@ -22,7 +36,7 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "id=4",
+          "query": "id=9",
           "launchMode": "default",
           "scene": null
         },
@@ -50,13 +64,6 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "3",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
           "query": "1",
           "launchMode": "default",
           "scene": null
@@ -75,12 +82,6 @@
         {
           "name": "pages/deployService/index",
           "pathName": "pages/deployService/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/selectRecord/index",
-          "pathName": "pages/selectRecord/index",
           "query": "",
           "scene": null
         },
