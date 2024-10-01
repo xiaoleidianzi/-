@@ -88,8 +88,13 @@ Page({
         //捕捉错误
         videoAd.onError(err => {
         // 进行适当的提示
-        logger.error('onLoad-videoAderr', err)
-        console.log(err)
+          logger.error('onLoad-videoAderr', err)
+          console.log(err)
+          // onLoad-videoAderr {"errMsg":"no advertisement","errDetail":"广告组件审核中，解决方案参考'https://developers.weixin.qq.com/miniprogram/dev/component/ad.html'","errCode":1005} 
+          that.setData({
+            //"直接给予验证码",
+            contentId:1
+          });
         })
         // 监听关闭
         videoAd.onClose((status) => {
