@@ -6,6 +6,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "id=6",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/addqun/index",
           "pathName": "pages/addqun/index",
           "query": "",
@@ -114,5 +121,5 @@
   },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "%E9%AA%8C%E8%AF%81%E7%A0%81",
-  "libVersion": "3.4.10"
+  "libVersion": "3.5.8"
 }

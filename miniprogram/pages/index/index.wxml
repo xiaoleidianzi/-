@@ -36,6 +36,8 @@
 
 <view class="container1">
   <view class="datadb"  wx:if="{{contentId == 1}}">{{datadb}}</view>
+  <view class="datadb"  wx:elif="{{contentId == 2}}">{{datadb}}</view>
+  <view class="datadb"  wx:elif="{{contentId == 3}}">请观看完整视频广告</view>
   <view class="button">
 
         <button type="primary" size="default" bindtap="buttonClick1" style="background-color: blueviolet;">获取验证码</button>
