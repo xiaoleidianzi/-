@@ -1,23 +1,19 @@
 <view class="title">【获得记录】 </view>
-  <view class="content">  
-      <view>【名称】：{{datadb.date}} </view>
+  <view class="content" wx:if="{{contentId == 1}}">  
+      <view>【日期】：{{datadb.date}} </view>
       <view>【密码】：{{datadb.code}} </view>    
-  </view>
-  <view class="content">  
-      <view>【名称】：{{}} </view>
-      <view>【密码】：{{}} </view>    
-  </view>
-
-  <view class="content">  
-      <view>【名称】：{{}} </view>
-      <view>【密码】：{{}} </view>    
   </view>
 
   <view class="content">  
       <view></view>
       <view></view>    
   </view>
-  <view class="top_tip1">
-    <ad-custom unit-id="adunit-40a92b4f82e572f0" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+  
+  <view class="content">  
+      <view></view>
+      <view></view>    
   </view>
+ 
+  <ad-custom unit-id="adunit-40a92b4f82e572f0" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+ 
   
