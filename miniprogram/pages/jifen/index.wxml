@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+<view class="page me">
+    <view class="userinfo">
+      <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> -->
+      <text class="userinfo-nickname">HI！您目前的积分是：</text>
+      <view class="usermotto">
+        <text class="user-motto">{{motto}}分</text>
+      </view>
+    </view>
+
+    <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+    </view>
+
+    <view class="about">
+        <view class="about-item">
+          <text class="about-item-title">■ 关于积分</text>
+          <text class="about-item-content">积分可用于兑换学习资料，资料每周五晚更新，下载资料消耗5积分，重复下载不消耗积分。</text>
+        </view>
+
+        <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+        </view>
+
+        <view class="about-item">
+          <text class="about-item-title">■ 如何获取积分？</text>
+          <text class="about-item-content">可通过签到、观看广告或做任务方式进行获取。</text>
+        </view>
+        <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+        </view>
+        <view class="about-item">
+          <button type="primary" size="default" bindtap="buttonClick1" style="background-color: blueviolet;">每日签到</button>
+        </view>
+        <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+        </view>
+        <view class="about-item">
+          <button type="primary" size="default" bindtap="buttonClick1" style="background-color: blueviolet;">获取积分</button>
+        </view>
+        <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+        </view>
+        <view class="about-item">
+          <button type="primary" size="default" bindtap="buttonClick1" style="background-color: blueviolet;">兑换积分</button>
+        </view>
+        
+    </view>
+
+    <view class="about-item">
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+          <text class="about-item-title"></text>
+          <text class="about-item-content"></text>
+    </view>
+
+    <text class="about-item-title">----end----</text>
+
+</view>
