@@ -7,13 +7,13 @@
 }
 .userinfo{
   position: relative;
-  width: 98%;
+  width: 95%;
   height: 300rpx;
   background: blueviolet;
   color: #fff;
   display: flex;
   flex-direction: column ;
-  border-radius: 3%;
+  border-radius: 20rpx;
   justify-content:left;
   align-items: flex-start;
 }
@@ -27,14 +27,14 @@
 
 .usermotto{
   display: flex;
-  width: 98%;
+  width: 95%;
   height: 300rpx;
   background: blueviolet;
   Flex-direction:column;
   color: #fff;
   justify-content:center;
   align-items: center;
-  border-radius: 3%
+  border-radius: 20rpx;
 }
 
 .user-motto {
@@ -52,6 +52,16 @@
   font-size: 32rpx;
   line-height: 60rpx;
 }
+
+.about-item-title-end{
+  position: fixed;
+  display: block;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  color: #1d250a44;
+  bottom: 200rpx;
+}
+
 .about-item-content{
   margin-top: 10rpx;
   display: block;
