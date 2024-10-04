@@ -1,4 +1,7 @@
 // app.js
+const logManager = wx.getRealtimeLogManager()
+const logger = logManager.tag('plugin-onUserTapSth')
+
 App({
   onLaunch: function () {
     var thet = this;
@@ -30,13 +33,16 @@ App({
               success: function(res) {
                 thet.globalData.openid=res.data
                 console.log('获取 openid 成功',thet.globalData.openid);
+                logger.info('获取 openid 成功',thet.globalData.openid)
               },
               fail: function(err) {
                 console.error('获取 openid 失败', err);
+                logger.error('获取 openid 失败', err)
               }
             });
           } else {
             console.log('登录失败！' + res.errMsg);
+            logger.error('登录失败！' + res.errMsg)
           }
         }
       });

@@ -14,17 +14,6 @@ page {
   margin-bottom: 40rpx;
 }
 
-.button{
-  
-  position: fixed;
-  /* z-index: 100; */
-  bottom: 300rpx;
-  /* right: 320rpx; */
-  margin-bottom: 40rpx;
-  /* width: 100rpx; */
-}
-
-
 .datadb{
   position: fixed;
   /* z-index: 100; */
@@ -121,4 +110,33 @@ page {
   color: rgba(0, 0, 0, 0.4);
   font-size: 24rpx;
   margin-top: 25%;
+}
+
+.image {
+  display: flex;
+  position: fixed;
+  width:50rpx;
+  height: 50rpx;
+  /* align-items:flex-start;
+  justify-content: left; */
+}
+
+.button{
+  display: flex;
+  position: fixed;
+  /* z-index: 100; */
+  bottom: 300rpx;
+  /* right: 320rpx; */
+  margin-bottom: 40rpx;
+  flex-direction: row;
+  /* width: 100rpx; */
+  align-items:center;
+  justify-content: center;
+}
+
+.codebutton{
+  /* display: flex; */
+  
+  align-items:flex-end;
+  justify-content: right;
 }

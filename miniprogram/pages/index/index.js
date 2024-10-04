@@ -4,8 +4,8 @@ const { envList } = require('../../envList.js');
 const logManager = wx.getRealtimeLogManager()
 const logger = logManager.tag('plugin-onUserTapSth')
 let g_id=0;         //H5页面传参，初始为0
-let videoAdstatus=0;//0：视频播放失败 1:视频播放成功
 var videoAd = null;
+
 Page({
   data: {
     contentId: 0,//验证码开关，0：不显示、1：显示
@@ -14,38 +14,68 @@ Page({
   buttonClick1: function() {
     console.log('按钮被点击了');
     logger.info('buttonClick1', '按钮被点击了')
-    console.log(g_id);
     logger.info('buttonClick1-g_id', g_id)
     var that = this; // 保存页面上下文
+    //请求数据库（判断是否强制观看）
+    wx.request({
+      url: 'https://xiaoleidianzi.xyz/xiaochengxu/getlog.php',
+      method: 'GET',
+      data:{ 
+          id:g_id,                         //H5携带参数
+          openid:app_var.globalData.openid, //用户openid
+          mode:0
+      },
 
-    wx.showLoading({
-      title: '广告加载中',
-      mask: 1000,
-      duration: 1000
+      success: function (res) {
+          console.log(res.data)
+          logger.info('onLoad-qiangzhi', res.data)
+          
+          if(res.data.qiangzhi==1)//强制观看视频
+          {
+            logger.info('onLoad-qiangzhi', "强制观看视频")
+      
+            wx.showLoading({
+              title: '广告加载中',
+              mask: 1000,
+              duration: 1000
+            });
+        
+            console.log('打开激励视频');
+            // 在合适的位置打开广告
+            if (videoAd) {
+              console.log('已创建视频对象');
+              logger.info('buttonClick1-videoAd', "已创建视频对象")
+              videoAd.load()
+                  .then(() => {
+                    videoAd.show()
+                  })
+                  .catch(err => {
+                    console.log('视频加载失败');
+                    console.log(err);
+                    logger.error('buttonClick1-视频加载失败', err)
+                  });
+            }
+            else{
+              logger.error('buttonClick1-videoAd', "创建视频对象失败")
+              that.setData({
+                contentId:1
+              });
+            }
+          }
+          else
+          {
+              logger.error('buttonClick1-videoAd', "不强制观看激励视频")
+              that.setData({
+                contentId:1
+              });
+          }
+      },
+      fail: function (error) {
+          console.error('请求失败', error);
+          logger.error('onLoad-数据库请求失败', error);
+      }
     });
 
-    console.log('打开激励视频');
-    // 在合适的位置打开广告
-    if (videoAd) {
-      console.log('已创建视频对象');
-      logger.info('buttonClick1-videoAd', "已创建视频对象")
-      videoAd.load()
-          .then(() => {
-            videoAd.show()
-          })
-          .catch(err => {
-            console.log('视频加载失败');
-            console.log(err);
-            logger.error('buttonClick1-视频加载失败', err)
-          });
-    }
-    else{
-      logger.error('buttonClick1-videoAd', "创建视频对象失败")
-      that.setData({
-        contentId:1
-      });
-    }
-    
         //请求数据库
         wx.request({
           url: 'https://xiaoleidianzi.xyz/xiaochengxu/mysql.php',
@@ -56,7 +86,7 @@ Page({
           },
     
           success: function (res) {
-              console.log(res.data)
+              console.log("验证码："+res.data)
               logger.info('buttonClick1-code', res.data)
             // 将获取的数据存储到页面数据中
             that.setData({
@@ -105,7 +135,29 @@ Page({
             that.setData({
               contentId:1
             });
-
+            //将结果写入数据库
+            wx.request({
+              url: 'https://xiaoleidianzi.xyz/xiaochengxu/getlog.php',
+              method: 'GET',
+              data:{ 
+                  id:g_id,                         //H5携带参数
+                  openid:app_var.globalData.openid, //用户openid
+                  mode:1,                            //写数据库
+                  date:this.data.datadb.date,
+                  code:this.data.datadb.code
+              },
+        
+              success: function (res) {
+                  console.log("写入数据库结果"+res.data)
+                  logger.info('写入数据库结果', res.data)
+                // 将获取的数据存储到页面数据中
+                
+              },
+              fail: function (error) {
+                console.error('请求失败', error);
+                logger.error('buttonClick1-数据库请求失败', error);
+              }
+            });
          } else {
           logger.info('onLoad-videoAdstatus', "请观看完整广告")
           that.setData({

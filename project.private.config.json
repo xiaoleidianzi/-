@@ -8,6 +8,13 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
+          "query": "id=8",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "id=6",
           "launchMode": "default",
           "scene": null

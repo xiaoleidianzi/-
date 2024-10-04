@@ -35,7 +35,7 @@ Page({
     });
   },
   
-  onLoad(){
+  onShow(){
     logger.info('onLoad-openid', app_var.globalData.openid)
     console.log(app_var.globalData.openid);
     var that = this; // 保存页面上下文
