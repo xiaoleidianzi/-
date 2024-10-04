@@ -14,7 +14,7 @@
       <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> -->
       <text class="userinfo-nickname">HI！您目前的积分是：</text>
       <view class="usermotto">
-        <text class="user-motto">{{motto}}分</text>
+        <text class="user-motto">{{datadb.jifen}}分</text>
       </view>
       <text class="userinfo-nickname"></text>
     </view>
